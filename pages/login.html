@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="shortcut icon"
+      href="../images/favIcon.png"
+      type="image/x-icon"
+    />
+    <script src="../script/script.js"></script>
+    <title>Login Project-CR</title>
+  </head>
+  <body class="loginBody">
+    <div class="loginAlignContent">
+      <div class="loginWindow">
+        <div class="loginWindowImage">
+          <img src="../images/favIcon.png" alt="Icon" id="loginWindowImage" />
+        </div>
+        <div class="loginInput">
+          <div class="inputBorder">
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Username"
+            />
+          </div>
+          <div class="inputBorder">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+            <img
+              src="../images/visibilityOffWhite.png"
+              id="loginVisibility"
+              onclick="passwordVisibility()"
+            />
+          </div>
+          <button class="loginSend">Login</button>
+        </div>
+        <div class="loginRegister">
+          <p>
+            Want to get access? <br />
+            E-Mail to ________________________
+          </p>
+        </div>
+      </div>
+      <div class="linkBack">
+        <a class="home" id="loginHome" href="../index.html">Home</a>
+        <a class="about" id="loginAbout" href="">About</a>
+      </div>
+    </div>
+  </body>
+</html>

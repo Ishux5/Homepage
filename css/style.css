@@ -1,0 +1,556 @@
+:root {
+    --backgroundColor: rgb(41, 43, 47);
+    --hoverColor: rgb(72, 72, 73);
+    --outlineColor: white;
+    --textColor: rgb(255, 255, 255);
+    --secondaryColor: rgb(46, 145, 43);
+    --boxShadowColor: black;
+    --scrollbarColor: rgb(18, 19, 20);
+    --scrollbarHoverColor: rgb(32, 34, 37);
+    --logoTextColor: rgb(255, 255, 255);
+}
+
+body {
+    display: flex;
+    margin: 0px;
+    width: 100%;
+    background-color: var(--backgroundColor);
+    justify-content: center;
+}
+
+.centeredWebsite {
+    display: flex;
+    flex-direction: column;
+    width: 1100px;
+    align-items: center;
+    box-shadow: 0px 0px 90px var(--boxShadowColor);
+}
+
+/* Head */
+
+.head {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 0.15fr;
+    grid-template-areas:
+        "logo links modes"
+        "logo . modes";
+}
+
+#indexCr-projectsLogo {
+    grid-area: logo;
+}
+
+.indexCr-projectsLogoBackground {
+    fill: var(--backgroundColor);
+}
+
+.indexCr-projectsLogoText {
+    fill: var(--logoTextColor);
+}
+
+.headLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    grid-area: links;
+}
+
+.about,
+.contact,
+.login,
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 97px;
+    height: 31px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 20px;
+    margin: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--outlineColor);
+    border-radius: 17px;
+}
+
+.about:hover,
+.contact:hover,
+.login:hover,
+.home:hover {
+    background-color: var(--hoverColor);
+}
+
+#about,
+#loginAbout,
+#contact,
+#login,
+#loginHome {
+    text-decoration: none;
+    color: var(--textColor);
+}
+
+.modes {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    grid-area: modes;
+}
+
+.modeIcon {
+    width: 58px;
+    height: auto;
+}
+
+#languageMode {
+    border-radius: 50%;
+    box-shadow: 0px 0px 8px var(--boxShadowColor);
+}
+
+.modeIcon:hover {
+    cursor: pointer;
+}
+
+.content {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Heading */
+
+#headingBox {
+    width: 100%;
+}
+
+#headingBox svg {
+    margin-left: 50px;
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    30% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 100;
+    }
+}
+
+.headingAnimation svg path {
+    opacity: 0;
+    fill: var(--secondaryColor);
+    animation-timing-function: cubic-bezier(0.09, 0.26, 0.35, 1.05);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: slideInFromRight;
+    animation-delay: calc(var(--headingLetter) * 50ms);
+}
+
+/* Searchbar */
+
+.searchbarContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.searchbarBorder {
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--outlineColor);
+    border-radius: 40px;
+    width: 90%;
+}
+
+.searchbar {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+#searchbarSearchIcon {
+    width: 31px;
+    height: 31px;
+}
+
+#searchbar {
+    flex-grow: 20;
+    height: 53px;
+    background: none;
+    margin-left: 10px;
+    border: none;
+}
+
+#searchbar:focus {
+    font-family: "Noto Sans JP", sans-serif;
+    outline: none;
+    color: var(--textColor);
+}
+
+#searchbar::placeholder {
+    font-family: "Noto Sans JP", sans-serif;
+    color: var(--textColor);
+}
+
+.searchbarTags {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 3px;
+    padding-right: 15px;
+    width: 200px;
+    height: 55px;
+    background: none;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: solid;
+    border-color: var(--outlineColor);
+    border-width: 2px;
+    border-top-right-radius: 27px;
+    border-bottom-right-radius: 27px;
+    cursor: pointer;
+}
+
+.searchbarTags:hover {
+    background-color: var(--hoverColor);
+}
+
+.searchbarTagsShow {
+    background-color: var(--hoverColor);
+}
+
+#searchbarTagIcon {
+    height: auto;
+    width: 30px;
+    margin-left: 5px;
+}
+
+#searchbarTagsName {
+    font-family: "Noto Sans JP", sans-serif;
+    flex-grow: 10;
+    margin-left: 4px;
+    color: var(--textColor);
+}
+
+.tagDropdownContent {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 50px;
+    background-color: var(--backgroundColor);
+}
+
+.tagDropdownContentShow {
+    display: block;
+}
+
+.tagDropdownContentBox {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    box-shadow: 0px 0px 8px var(--boxShadowColor);
+    border-radius: 10px;
+}
+
+.tagButton {
+    height: 25px;
+    margin: 5px 15px;
+    border-radius: 5px;
+    background: none;
+    border: none;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 20;
+    color: var(--textColor);
+}
+
+.tagButton:hover {
+    background-color: var(--hoverColor);
+    cursor: pointer;
+}
+
+/* Content */
+
+.activeTagsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#activeTags {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 31px;
+}
+
+.activeTag {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: var(--outlineColor);
+    border-width: 1px;
+    margin-right: 10px;
+}
+
+.tagP {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 15px;
+    margin: 0px 0px 0px 10px;
+    color: var(--textColor);
+}
+
+.tagImg {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    margin-left: 6px;
+}
+
+.tagImg:hover {
+    cursor: pointer;
+    background-color: var(--hoverColor);
+    border-radius: 50%;
+}
+
+.tagImgChild {
+    fill: var(--outlineColor);
+}
+
+/* small Window */
+@media screen and (max-width: 1100px) {
+    .centeredWebsite {
+        width: 100%;
+    }
+
+    .head {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 70px;
+        grid-template-rows: 1fr 0.2fr;
+        grid-template-areas:
+            "logo modes"
+            "links links";
+    }
+}
+
+@media screen and (max-width: 610px) {
+    body {
+        width: 610px;
+    }
+
+    .loginBody {
+        width: 100%;
+    }
+}
+
+/* Scrollbar */
+
+body::-webkit-scrollbar {
+    background-color: var(--backgroundColor);
+}
+
+body::-webkit-scrollbar-track {
+    background-color: var(--backgroundColor);
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--scrollbarColor);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbarHoverColor);
+}
+
+body::-webkit-scrollbar-corner {
+    background-color: var(--scrollbarColor);
+}
+
+/* Top Vertical*/
+body::-webkit-scrollbar-button:single-button:vertical:decrement {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAfCAYAAADnTu3OAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHLSURBVEhLpZS9LwRBGMbvnI8TEdxejkZ8RPAP0IpGohFBRXEkCpVKNCoNuVKp83/4SPwVEhXRII7Q+P54nt3X3dzOzM44v+TJMzO78+z77mYn5UMuyM9QMk2kQdzFhsiJb+CwyEla3ApazcKeo1mq9b589yJjIz4VdouTHnErPoFqiBpuxCewX5wMiFvxCRwXJ2PiVnwCp8WJOjaS+JXxhdthj9Dvfd9QJ770UzTVcVXYB6kP5Vh9pxquwHlxlTlxI9aW0S6vPUAd4UIVvoIutM32NZIqLEDxMMI1XjOSFLgobmJJXMPYsrT7BjWGCzofULOpbVuFOcgWRngtiIa12AKPxZM4Eq9Baxnt8iGf0cxJBm1/yTjEVOG2uA/avTUVojoaD9AWDjx4hbKoMpqBeIWrkG8Y4b3cUyFe4TXMeYjGuEWFlT2VChG2APtrGCnI3hC15V3xeiiJR4F4wixsiOM6GZSMVBoDvsczaIQL/+AcGmVgEYODcKnKO3QKHUIn0A1E+I4noSloAmqCVFYYeIEBT2ZyBe1DJXw5HgBWsI//8ya0BvVyDVwykCdGGdqB9hDk+9uFYH8Gtg5tQQEXilAbL/4HZuSC/PIPAV5O/WMRdt8AAAAASUVORK5CYII=");
+}
+
+/* Bottom Vertical*/
+body::-webkit-scrollbar-button:single-button:vertical:increment {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAfCAYAAADnTu3OAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAHYSURBVEhLpZbNLwNBGMa3LUHdVOIkDiT8FyLEP+HQuDk5KuEskR5wdHPhxtVBInFx4NST+ggaFxptgkSJz+eZebuZbXd2p/VLnjzvzHYf72zszKb6Mv3ZnnT6ulZ7+/T+AXJ6kTOTQPGLcQVahTarladv/sAV3J+CzUPLUIaBdyiGIHIPbUFrCP5SMxZwXwdsAZqDBjkHSgzMotjWYx8u/xg6hI6gR4gMQBPQNDQOdUImswxMoDiHRtVU+1xCY0ksjc9wUU39jxyz2J0CnV7BRvSoZW4QNswiqYaaJfF2yIl7focEXT7A+OBboYzu/HvMDsmKeCvw/8+nsUPaO9TFwoEPqBsd6hEIdCgX8mrgRt4MI4EOCbrkH3F9/VII/JFa0fgM2SV/UNCjSAqNYaQpUJgUj2JKPIAtsApFbQ68xh2qidBALIWvI3cSG+o1kzqArUOyKx7GjngTUYFl6FmXATjHa6FYA2VJ63oUYMO2XBLVIdkTN9kXDyUusASZ3bDmkWElMhBLe4UV9UhRxNyL1KHEdUgOxIlZh+ISeCpOzsStuASaz+xW3IpLIHfxOvXj1IpLoBlihrcPzxo5b2Jx6ZDwEKdi4YdOLPiq4lZ1gi+0Cz1jw/P+AKmhiVznDQZHAAAAAElFTkSuQmCC");
+}
+
+/* Top Horizontal*/
+body::-webkit-scrollbar-button:single-button:horizontal:decrement {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAUCAYAAAB1aeb6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAGfSURBVEhLvZZNLwNRFIZvi4QmiBIfG9UNFhIk6h9Y2IiIFYlY+AEW0q2Ij/iKnYX4EX6A2luInUTSjcTGosWGEoTnnV6SNlPtdKZ9kyfn3JnMvPecuXdmQqZOinZ2yWsJNiAGy3Uxx3iWsAtDzgFjshAL5/PaCNN5SJOewa+xtPOYzbwEXjlmCiuwBT0aFOke4ph/BVY5pmHYJH2DU3Azlk5krMRX5Zjp+ihcwKiOldEHRDD/1MCzuTXshgXYh0aoVCmMp2xuKmo7hq0wAusMn+ABjsCLsXRuo6OCyrl5M0HPqhcGYBKmYRh8PSKrBJVf2dyEMJwhrsEglFokQakfc612RzXd5+Xk1na1XB2IQwJq13Yb/xWTaiNoDczBKrRDNUpifmBz79UwEV2jrbYIe1D1VvPVSjuRTkiB55eMrwXHTb4hA2MMG0Dv83edK6EmSObTYBZRgeiGgj4s26DHU6y/D4tmG6hyuVdxDYctkcgNhyagwzmZlxbrM+cvA6/cTXRDPxNanHqRSc7PROCVu4kqb+nCMekdjEOfMSb9Ay6fcUII2/Z8AAAAAElFTkSuQmCC");
+}
+
+/* Bottom Horizontal*/
+body::-webkit-scrollbar-button:single-button:horizontal:increment {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAUCAYAAAB1aeb6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAGeSURBVEhLxZU/L0NRGMZvXSLKpE3EIFajwSfwJzaxSAwS6RcQAxphNInBBzBYmERsBpOVBQNioCzaprfCoP4l/J5ztGnucNOrt/Ukv773Pfemz3nfe865bnciOdsRj59BCp7golR6dZqhFtgDD/phG66Y0CSx4XKp8pNqv7get0NOEqYZm4FH7l/a4egV0w+VuoQ76FPuUw5WYavoFcxAVJKpQ3XfVBnncli5T10wAcs80w7Het7cqVOmconqWwlaaW1mIFjnMAJFuvHniVTMJSZwRBi1WU3SWlmCXciHnYhpe1m0tJcwZrOapN2ihboA87+vxYMSr+ZDDwTJX/kQ4dRmdUkduIZDOIEMZCFHd96IRn5zrfYHmzVM2j03sKG2/Zua0Xb9n84QVZwNavsiYd1mofUMm7APGUxeNBikKLZaGnYg9FarmGMc9pDRJL2whtWqXnA6LIKM32ENXAwHoVCPsWQqp+qgD0seViDyD0u58jnwG9/CFIY9ELmxFKPqTuI9JMyIPQDSmB3YtHFS5VMgY00gBQPNMHYcx/kB17qVa+JycEwAAAAASUVORK5CYII=");
+}
+
+/* LoginPage */
+
+.loginBody {
+    display: block;
+    min-width: 350px !important;
+}
+
+.loginAlignContent {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginWindow {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr 0.1fr;
+    grid-template-areas:
+        "loginWindowImage"
+        "loginInput"
+        "register";
+    width: 350px;
+    height: 450px;
+    margin-top: 10px;
+    flex-direction: column;
+    align-items: center;
+    border-color: var(--secondaryColor);
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px var(--boxShadowColor);
+}
+
+.loginWindowImage {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#loginWindowImage {
+    grid-area: loginWindowImage;
+    height: 150px;
+    width: 150px;
+}
+
+.loginInput {
+    grid-area: loginInput;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputBorder {
+    display: grid;
+    grid-template-columns: 26px 1fr 26px;
+    grid-template-areas: ". input visibility";
+    align-items: center;
+    width: 80%;
+    height: 33px;
+    margin: 5px;
+    border-color: var(--outlineColor);
+    border-width: 2px;
+    border-radius: 20px;
+    border-style: solid;
+}
+
+#username,
+#password {
+    grid-area: input;
+    height: 31px;
+    background-color: var(--backgroundColor);
+    border: none;
+    color: var(--textColor);
+    text-align: center;
+    font-size: 15px;
+}
+
+#username:focus,
+#password:focus {
+    outline: none;
+    color: var(--textColor);
+    font-size: 15px;
+    text-align: center;
+}
+
+#username::placeholder,
+#password::placeholder {
+    color: var(--textColor);
+    font-size: 15px;
+    text-align: center;
+}
+
+#loginVisibility {
+    cursor: pointer;
+    width: 20px;
+    height: auto;
+    margin-right: 6px;
+    grid-area: visibility;
+}
+
+.loginSend {
+    color: var(--secondaryColor);
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    background-color: var(--backgroundColor);
+    border-color: var(--outlineColor);
+    border-radius: 17px;
+    margin-top: 5px;
+    height: 34px;
+    width: 50%;
+}
+
+.loginSend:hover {
+    cursor: pointer;
+    background-color: var(--hoverColor);
+}
+
+.loginRegister {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    grid-area: register;
+}
+
+.loginRegister p {
+    color: var(--textColor);
+    text-align: center;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+#loginHome {
+    grid-area: loginHome;
+}
+
+#loginAbout {
+    grid-area: loginAbout;
+}
+
+.linkBack {
+    display: grid;
+    grid-template-areas: "loginHome loginAbout";
+}
