@@ -59,6 +59,8 @@ function passwordVisibility() {
     }
 }
 
+const activeTagArray = [];
+
 function tagAddFunction(tagName) {
     tag = tagName.replace(/\s/g, "");
     if (document.getElementById(tag) === null) {
@@ -75,11 +77,13 @@ function tagAddFunction(tagName) {
 
         const div = document.getElementById(tag);
         const childP = div.getElementsByClassName("tagP");
-        const childImg = div.getElementsByClassName("tagImg");
 
         childP[0].innerHTML = tag;
         childP[0].outerHTML +=
             '<svg class="tagImg" width="73" height="73" viewBox="0 0 73 73" fill="none" xmlns="http://www.w3.org/2000/svg"><rect class="tagImgChild" x="53.3317" y="14.8304" width="6.84194" height="54.4491" rx="2" transform="rotate(45 53.3317 14.8304)"/><rect class="tagImgChild" x="14.8303" y="19.6683" width="6.84194" height="54.4491" rx="2" transform="rotate(-45 14.8303 19.6683)" /></svg>';
+
+        // Adding tag to activeTagArray
+        activeTagArray.push(tag);
     }
 }
 
@@ -90,9 +94,27 @@ tagList.addEventListener("click", removeTag);
 function removeTag(e) {
     if (e.target.classList.contains("tagImg")) {
         const parentE = e.target.parentElement;
+        const removeTagName = parentE.id;
+        const tagNameIndex = activeTagArray.indexOf(removeTagName);
+
+        // remove div
         tagList.removeChild(parentE);
+
+        // remove tag from activeTagArray
+        if (tagNameIndex > -1) {
+            activeTagArray.splice(tagNameIndex, 1);
+        }
     } else if (e.target.classList.contains("tagImgChild")) {
         const parentE = e.target.parentElement.parentElement;
+        const removeTagName = parentE.id;
+        const tagNameIndex = activeTagArray.indexOf(removeTagName);
+
+        // remove div
         tagList.removeChild(parentE);
+
+        // remove tag from activeTagArray
+        if (tagNameIndex > -1) {
+            activeTagArray.splice(tagNameIndex, 1);
+        }
     }
 }
