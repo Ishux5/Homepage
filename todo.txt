@@ -1,0 +1,7 @@
+Images:
+change search- an tagicon to svg
+delete unused images from images folder
+
+Content:
+project template add layout 
+backgroundimage

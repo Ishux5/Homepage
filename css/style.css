@@ -34,7 +34,7 @@ body {
     grid-template-columns: 1fr 1fr 0.15fr;
     grid-template-areas:
         "logo links modes"
-        "logo . modes";
+        "logo admin modes";
 }
 
 #indexCr-projectsLogo {
@@ -91,6 +91,32 @@ body {
     color: var(--textColor);
 }
 
+.headAdminContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headAdmin {
+    grid-area: admin;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 31px;
+    border-style: solid;
+    border-radius: 17px;
+    border-color: var(--outlineColor);
+    border-width: 1px;
+}
+
+.headAdmin a {
+    color: var(--secondaryColor);
+    text-decoration: none;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 20px;
+}
+
 .modes {
     display: flex;
     justify-content: space-around;
@@ -112,7 +138,7 @@ body {
     cursor: pointer;
 }
 
-.content {
+.searchbarMain {
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
@@ -188,6 +214,8 @@ body {
     background: none;
     margin-left: 10px;
     border: none;
+    font-family: "Noto Sans JP", sans-serif;
+    color: var(--textColor);
 }
 
 #searchbar:focus {
@@ -327,6 +355,29 @@ body {
     fill: var(--outlineColor);
 }
 
+.indexMain {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.indexContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 18px;
+    column-gap: 18px;
+    width: 90%;
+}
+
+.itemTemplate {
+    width: 230px;
+    height: 270px;
+    border-style: solid;
+    border-color: var(--outlineColor);
+    border-width: 2px;
+    border-radius: 30px;
+}
+
 /* small Window */
 @media screen and (max-width: 1100px) {
     .centeredWebsite {
@@ -337,10 +388,23 @@ body {
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 70px;
-        grid-template-rows: 1fr 0.2fr;
+        grid-template-rows: 1fr 0.2fr 0.2fr;
         grid-template-areas:
             "logo modes"
-            "links links";
+            "links links"
+            "admin admin";
+    }
+
+    .indexContainer {
+        width: 738px;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 816px) {
+    .indexContainer {
+        width: 468px;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
