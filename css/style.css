@@ -49,68 +49,63 @@ body {
     fill: var(--logoTextColor);
 }
 
-.headLinks {
+.headWidth {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: center;
+}
+
+#headLinks {
     grid-area: links;
 }
 
-.about,
-.contact,
-.login,
-.home {
-    display: flex;
-    justify-content: center;
+#headAdmin {
+    grid-area: admin;
+}
+
+.headLinks {
+    display: grid;
+    width: 400px;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 30px;
     align-items: center;
-    width: 97px;
-    height: 31px;
-    font-family: "Noto Sans JP", sans-serif;
-    font-size: 20px;
-    margin: 20px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--outlineColor);
-    border-radius: 17px;
-}
-
-.about:hover,
-.contact:hover,
-.login:hover,
-.home:hover {
-    background-color: var(--hoverColor);
-}
-
-#about,
-#loginAbout,
-#contact,
-#login,
-#loginHome {
-    text-decoration: none;
-    color: var(--textColor);
+    justify-content: center;
 }
 
 .headAdminContainer {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    width: 400px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
     align-items: center;
+    justify-content: center;
 }
 
-.headAdmin {
-    grid-area: admin;
-    padding: 0px 20px;
+.headButtons {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
     height: 31px;
     border-style: solid;
-    border-radius: 17px;
-    border-color: var(--outlineColor);
     border-width: 1px;
+    border-color: var(--outlineColor);
+    border-radius: 17px;
 }
 
-.headAdmin a {
+.headButtonsPadding {
+    padding: 0px 20px;
+}
+
+.headButtons:hover {
+    background-color: var(--hoverColor);
+}
+
+.headButtonsText {
+    color: var(--textColor);
+    text-decoration: none;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 20px;
+}
+
+.headAdminText {
     color: var(--secondaryColor);
     text-decoration: none;
     font-family: "Noto Sans JP", sans-serif;
@@ -388,11 +383,22 @@ body {
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 70px;
-        grid-template-rows: 1fr 0.2fr 0.2fr;
+        grid-template-rows: 1fr 0.4fr 0.4fr;
         grid-template-areas:
             "logo modes"
             "links links"
             "admin admin";
+    }
+
+    .headWidth {
+        justify-content: left;
+    }
+
+    .headLinks,
+    .headAdminContainer {
+        width: 512px;
+        column-gap: 30px;
+        margin: 0px 15px;
     }
 
     .indexContainer {
